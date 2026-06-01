@@ -2,19 +2,19 @@ backend:
   name: git-gateway
   branch: main
 
-# فين غايتحفظوا التصاور لي كاترفعهم من الـ Panel
+# البلاصة فين غاتخزن وتجيب منها التصاور
 media_folder: "assets/img"
 public_folder: "/assets/img"
 
 collections:
   # ------------------------------------------------------------
-  # القسم الأول: تحكم كامل ف سيكشنز ديال الـ Landing Page
+  # القسم الأول: إدارة أجزاء الصفحة الرئيسية (ثابت ومقاد)
   # ------------------------------------------------------------
   - name: "page_settings"
     label: "🌐 إدارة الصفحة الرئيسية"
-    delete: false # باش ما تمسحش هاد الأقسام بالغلَط
+    delete: false
     editor:
-      preview: false # كيحيد شاشة المعاينة البدائية باش نربحو مساحة
+      preview: false
     files:
       - name: "hero"
         label: "🚀 قسم الواجهة (Hero Section)"
@@ -23,14 +23,14 @@ collections:
           - { label: "العنوان الرئيسي", name: "title", widget: "string" }
           - { label: "العنوان الفرعي / الوصف", name: "subtitle", widget: "text" }
           - { label: "صورة الخلفية الكبيرة", name: "bg_image", widget: "image" }
-          - { label: "نص زر الطلب (مثال: اطلب الآن عبر الواتساب)", name: "cta_text", widget: "string" }
-          - { label: "رقم الواتساب الدولي (مثال: 212600000000)", name: "whatsapp_num", widget: "string" }
+          - { label: "نص زر الطلب", name: "cta_text", widget: "string" }
+          - { label: "رقم الواتساب الدولي", name: "whatsapp_num", widget: "string" }
 
       - name: "about"
         label: "☕ قسم من نحن (Our Story)"
         file: "data/about.json"
         fields:
-          - { label: "العنوان الصغير (الفوقاني)", name: "sub_title", widget: "string" }
+          - { label: "العنوان الصغير", name: "sub_title", widget: "string" }
           - { label: "العنوان الرئيسي", name: "title", widget: "string" }
           - { label: "قصة المقهى والوصف", name: "description", widget: "text" }
 
@@ -38,25 +38,27 @@ collections:
         label: "📞 معلومات التواصل وأوقات العمل"
         file: "data/footer.json"
         fields:
-          - { label: "أوقات العمل (مثال: كل يوم من 07:00 إلى 23:00)", name: "opening_hours", widget: "string" }
+          - { label: "أوقات العمل", name: "opening_hours", widget: "string" }
           - { label: "العنوان الجغرافي للمقهى", name: "address", widget: "string" }
           - { label: "رابط إنستغرام", name: "instagram", widget: "string", required: false }
 
   # ------------------------------------------------------------
-  # القسم الثاني: إدارة المنيو (إضافة، تعديل، وحذف المشروبات)
+  # القسم الثاني: المنيو ف ملف واحد (تم تصحيح السانتيكس هنا بنجاح)
   # ------------------------------------------------------------
-  - name: "menu_items"
+  - name: "menu_collection"
     label: "📜 منيو المشروبات والحلويات"
-    file: "data/menu.json"
-    fields:
-      - label: "قائمة المشروبات"
-        name: "items"
-        widget: "list"
-        summary: "{{title}} —— {{price}} درهم [{{category}}]"
+    files:
+      - name: "menu_file"
+        label: "كل المشروبات والمنتجات"
+        file: "data/menu.json"
         fields:
-          - { label: "اسم المشروب / المنتج", name: "title", widget: "string" }
-          - { label: "التصنيف", name: "category", widget: "select", options: ["☕ قهوة مختصة", "🍹 مشروبات باردة", "🍰 حلويات", "🥪 وجبات خفيفة"] }
-          - { label: "الثمن (بالدرهم)", name: "price", widget: "number", value_type: "int" }
-          - { label: "صورة المنتج", name: "image", widget: "image", required: false }
-          - { label: "وصف أو مكونات (اختياري)", name: "description", widget: "string", required: false }
-          - { label: "متوفر حالياً ف السطوك؟", name: "available", widget: "boolean", default: true }
+          - label: "قائمة المنتجات"
+            name: "items"
+            widget: "list" # هادي كاتخليك تزيد اللائحة كاملة وسط نفس الملف
+            fields:
+              - { label: "اسم المشروب / المنتج", name: "title", widget: "string" }
+              - { label: "التصنيف", name: "category", widget: "select", options: ["☕ قهوة مختصة", "🍹 مشروبات باردة", "🍰 حلويات", "🥪 وجبات خفيفة"] }
+              - { label: "الثمن (بالدرهم)", name: "price", widget: "number", value_type: "int" }
+              - { label: "صورة المنتج", name: "image", widget: "image" }
+              - { label: "وصف أو مكونات (اختياري)", name: "description", widget: "string", required: false }
+              - { label: "متوفر حالياً ف السطوك؟", name: "available", widget: "boolean", default: true }
