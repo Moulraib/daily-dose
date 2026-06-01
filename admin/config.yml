@@ -1,0 +1,144 @@
+backend:
+  name: git-gateway
+  branch: main
+
+locale: 'ar'
+media_folder: assets
+public_folder: /assets
+
+collections:
+  - name: "content"
+    label: "إدارة المحتوى"
+    files:
+      - file: "data/content.json"
+        label: "جميع المحتوى"
+        name: "site"
+        fields:
+          - label: "الموقع (Site meta)"
+            name: "site"
+            widget: "object"
+            fields:
+              - { label: "عنوان الموقع", name: "title", widget: "string" }
+              - { label: "وصف الموقع", name: "description", widget: "text" }
+              - { label: "عنوان OG", name: "ogTitle", widget: "string" }
+              - { label: "وصف OG", name: "ogDescription", widget: "text" }
+
+          - label: "الشعار (Navbar)"
+            name: "navbar"
+            widget: "object"
+            fields:
+              - { label: "صورة الشعار", name: "logo", widget: "image" }
+              - { label: "اسم الماركة", name: "brand", widget: "string" }
+              - { label: "تحت الاسم", name: "brandSub", widget: "string" }
+              - label: "روابط التنقل"
+                name: "links"
+                widget: "list"
+                fields:
+                  - { label: "النص", name: "label", widget: "string" }
+                  - { label: "الرابط", name: "href", widget: "string" }
+
+          - label: "القسم الرئيسي (Hero)"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "عنوان فرعي", name: "eyebrow", widget: "string" }
+              - { label: "العنوان الرئيسي", name: "heading", widget: "string" }
+              - { label: "النص الوصفي", name: "sub", widget: "text" }
+              - { label: "نص الزر الأساسي", name: "buttonPrimary", widget: "string" }
+              - { label: "رابط الزر الأساسي", name: "buttonPrimaryUrl", widget: "string" }
+              - { label: "نص الزر الثانوي", name: "buttonSecondary", widget: "string" }
+              - { label: "رابط الزر الثانوي", name: "buttonSecondaryUrl", widget: "string" }
+              - { label: "تسمية ساعات العمل", name: "hoursLabel", widget: "string" }
+              - { label: "ساعات العمل", name: "hours", widget: "string" }
+              - { label: "تسمية رقم الهاتف", name: "phoneLabel", widget: "string" }
+              - { label: "رقم الهاتف", name: "phone", widget: "string" }
+              - { label: "رابط الهاتف", name: "phoneUrl", widget: "string" }
+              - { label: "صورة الهيرو", name: "image", widget: "image" }
+
+          - label: "من نحن (About)"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "تسمية القسم", name: "sectionLabel", widget: "string" }
+              - { label: "العنوان", name: "heading", widget: "string" }
+              - { label: "النص", name: "sub", widget: "text" }
+              - label: "المميزات"
+                name: "features"
+                widget: "list"
+                field: { label: "ميزة", name: "feature", widget: "string" }
+              - label: "البطاقات"
+                name: "cards"
+                widget: "list"
+                fields:
+                  - { label: "الأيقونة", name: "icon", widget: "string" }
+                  - { label: "العنوان", name: "heading", widget: "string" }
+                  - { label: "النص", name: "text", widget: "text" }
+
+          - label: "القائمة (Menu)"
+            name: "menu"
+            widget: "object"
+            fields:
+              - { label: "تسمية القسم", name: "sectionLabel", widget: "string" }
+              - { label: "العنوان", name: "heading", widget: "string" }
+              - label: "الأقسام"
+                name: "categories"
+                widget: "list"
+                fields:
+                  - { label: "عنوان القسم", name: "heading", widget: "string" }
+                  - { label: "ملاحظة الإضافات", name: "supplementsNote", widget: "string", required: false }
+                  - label: "العناصر"
+                    name: "items"
+                    widget: "list"
+                    fields:
+                      - { label: "الاسم", name: "name", widget: "string" }
+                      - { label: "ملاحظة", name: "note", widget: "string", required: false }
+                      - { label: "السعر", name: "price", widget: "string" }
+              - { label: "نص زر الطلب", name: "ctaText", widget: "string" }
+              - { label: "رابط زر الطلب", name: "ctaUrl", widget: "string" }
+
+          - label: "معرض الصور (Gallery)"
+            name: "gallery"
+            widget: "object"
+            fields:
+              - { label: "تسمية القسم", name: "sectionLabel", widget: "string" }
+              - { label: "العنوان", name: "heading", widget: "string" }
+              - label: "الصور"
+                name: "images"
+                widget: "list"
+                fields:
+                  - { label: "مسار الصورة", name: "src", widget: "image" }
+                  - { label: "النص البديل", name: "alt", widget: "string" }
+
+          - label: "اتصل بنا (Contact)"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "تسمية القسم", name: "sectionLabel", widget: "string" }
+              - { label: "العنوان", name: "heading", widget: "string" }
+              - { label: "النص", name: "sub", widget: "text" }
+              - { label: "نص زر الإنستغرام", name: "buttonInstagram", widget: "string" }
+              - { label: "رابط الإنستغرام", name: "buttonInstagramUrl", widget: "string" }
+              - { label: "نص زر الواتساب", name: "buttonWhatsapp", widget: "string" }
+              - { label: "رابط الواتساب", name: "buttonWhatsappUrl", widget: "string" }
+              - { label: "تسمية الهاتف", name: "phoneLabel", widget: "string" }
+              - { label: "رقم الهاتف", name: "phone", widget: "string" }
+              - { label: "تسمية الإنستغرام", name: "instagramLabel", widget: "string" }
+              - { label: "حساب الإنستغرام", name: "instagram", widget: "string" }
+              - { label: "تسمية الموقع", name: "locationLabel", widget: "string" }
+              - { label: "الموقع", name: "location", widget: "string" }
+
+          - label: "التذييل (Footer)"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "اسم الماركة", name: "brand", widget: "string" }
+              - { label: "تحت الاسم", name: "sub", widget: "string" }
+              - { label: "ساعات العمل", name: "hours", widget: "string" }
+              - label: "روابط التواصل"
+                name: "links"
+                widget: "list"
+                fields:
+                  - { label: "الأيقونة", name: "icon", widget: "string" }
+                  - { label: "الرابط", name: "url", widget: "string" }
+                  - { label: "وصف accessibility", name: "ariaLabel", widget: "string" }
+              - { label: "حقوق النشر", name: "copyright", widget: "string" }

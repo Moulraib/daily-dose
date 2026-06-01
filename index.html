@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+  <title data-c="site.title">Daily Dose Coffee - كافيه القنيطرة</title>
+  <meta name="description" data-c="site.description" content="Daily Dose Coffee - كافيه القنيطرة. قهوة مختصة، مشروبات طازجة، توصيل لباب الدار. اتصل: 0698457498" />
+  <meta name="keywords" content="كافيه القنيطرة, daily dose coffee, قهوة القنيطرة, port lyautey cafe" />
+  <meta property="og:title" data-c="site.ogTitle" content="Daily Dose Coffee - القنيطرة" />
+  <meta property="og:description" data-c="site.ogDescription" content="قهوة مختصة وأجواء مميزة في القنيطرة" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --bg-card: #1a1a1a;
+      --bg-card-hover: #222;
+      --border: #2a2a2a;
+      --text: #f0f0f0;
+      --muted: #999;
+      --gold: #c9a96e;
+      --gold-light: #dcc287;
+      --gold-dark: #a8884a;
+      --green: #25D366;
+      --radius: 16px;
+      --radius-lg: 20px;
+      --transition: 0.3s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    .container {
+      width: min(1100px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    section[id] { scroll-margin-top: 70px; }
+
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(13,13,13,0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .navbar .container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .navbar-brand-img {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      object-fit: contain;
+    }
+
+    .navbar-brand-text h1 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .navbar-brand-text span {
+      font-size: 0.7rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color var(--transition);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      right: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--text); }
+
+    .nav-links a.active::after { width: 100%; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    .nav-dropdown {
+      display: none;
+      background: rgba(13,13,13,0.98);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1rem;
+    }
+
+    .nav-dropdown.open { display: block; }
+
+    .nav-dropdown a {
+      display: block;
+      padding: 0.6rem 0;
+      color: var(--muted);
+      font-weight: 500;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: color var(--transition);
+    }
+
+    .nav-dropdown a:last-child { border-bottom: none; }
+    .nav-dropdown a:hover { color: var(--text); }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 0 40px;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+
+    .hero-img-placeholder {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero-img-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-img-placeholder svg {
+      width: 80px;
+      height: 80px;
+      opacity: 0.3;
+    }
+
+    .eyebrow {
+      font-size: 0.75rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+    }
+
+    .hero h2 {
+      font-size: clamp(2rem, 8vw, 4rem);
+      font-weight: 800;
+      line-height: 1.08;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero p.sub {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.6rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #0d0d0d;
+    }
+
+    .btn-gold:hover { background: var(--gold-light); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--text);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .btn-green {
+      background: var(--green);
+      color: #0d0d0d;
+    }
+
+    .btn-green:hover {
+      opacity: 0.9;
+    }
+
+    .hero-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .hero-info strong { color: var(--text); }
+
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .section h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      line-height: 1.15;
+    }
+
+    .section p.sub {
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-grid {
+      display: grid;
+      gap: 2.5rem;
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+
+    .features-list {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .features-list li {
+      position: relative;
+      padding-right: 1.6rem;
+      color: var(--muted);
+    }
+
+    .features-list li::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0.6rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .about-cards {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .feature-card:hover {
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+
+    .card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .feature-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .menu-section {
+      background: linear-gradient(180deg, rgba(201,169,110,0.04), transparent);
+      padding-bottom: 2.5rem;
+    }
+
+    .menu-section h2 {
+      text-align: center;
+    }
+
+    .menu-section .section-label {
+      text-align: center;
+    }
+
+    .menu-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 2rem;
+    }
+
+    .menu-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .menu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(201,169,110,0.15);
+    }
+
+    .menu-card h3 {
+      color: var(--gold);
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .menu-item:last-child { border-bottom: none; }
+
+    .menu-item span:first-child {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .menu-item span:last-child {
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .supplements-note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .menu-cta {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+
+    .menu-cta .btn {
+      font-size: 1rem;
+      padding: 1rem 2rem;
+    }
+
+    #gallery {
+      padding-top: 2.5rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      margin-top: 2rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      aspect-ratio: 1 / 1;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-item .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover .overlay {
+      opacity: 1;
+    }
+
+    .gallery-item .overlay span {
+      font-size: 2rem;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(0,0,0,0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition);
+      padding: 1rem;
+    }
+
+    .lightbox.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: 12px;
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      transition: var(--transition);
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 2.5rem;
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+
+    .contact-info-cards {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+    }
+
+    .contact-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-card strong {
+      font-size: 1.1rem;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .footer {
+      background: #0a0a0a;
+      border-top: 1px solid var(--border);
+      padding: 3rem 0 2rem;
+      text-align: center;
+    }
+
+    .footer h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer .sub {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer .hours {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-icons a {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      font-size: 1.1rem;
+    }
+
+    .footer-icons a:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .footer .copyright {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    [data-reveal].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    [data-reveal-delay="1"] { transition-delay: 0.1s; }
+    [data-reveal-delay="2"] { transition-delay: 0.2s; }
+    [data-reveal-delay="3"] { transition-delay: 0.3s; }
+    [data-reveal-delay="4"] { transition-delay: 0.4s; }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        gap: 1.5rem;
+      }
+
+      .hero-img-placeholder {
+        min-height: 280px;
+        order: -1;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 70px 0 30px; }
+      .section { padding: 3rem 0; }
+
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+      }
+
+      .gallery-item { aspect-ratio: 1 / 1; }
+
+      .contact-actions { flex-direction: column; }
+      .contact-actions .btn { width: 100%; }
+
+      .menu-card { padding: 1.25rem; }
+      .feature-card { padding: 1.25rem; }
+      .hero-info { gap: 0.75rem; }
+      .hero-info div { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <div class="container">
+      <button class="hamburger" id="hamburger" aria-label="القائمة">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="navbar-brand">
+        <img class="navbar-brand-img" data-c-src="navbar.logo" src="assets/logo-sign.jpg" alt="Daily Dose" />
+        <div class="navbar-brand-text">
+          <h1 data-c="navbar.brand">Daily Dose</h1>
+          <span data-c="navbar.brandSub">القنيطرة · Port Lyautey</span>
+        </div>
+      </div>
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">من نحن</a>
+        <a href="#menu">القائمة</a>
+        <a href="#gallery">صور</a>
+        <a href="#contact">اتصل بنا</a>
+      </nav>
+    </div>
+    <div class="nav-dropdown" id="navDropdown">
+      <a href="#about">من نحن</a>
+      <a href="#menu">القائمة</a>
+      <a href="#gallery">صور</a>
+      <a href="#contact">اتصل بنا</a>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy" data-reveal>
+        <p class="eyebrow" data-c="hero.eyebrow">Daily Dose · Port Lyautey</p>
+        <h2 data-c="hero.heading">القهوة والأسلوب ديال Daily Dose</h2>
+        <p class="sub" data-c="hero.sub">بساطة في التفاصيل، وفخامة في الأجواء. اكتشف عالم Daily Dose من أول نظرة.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" data-c-href="hero.buttonPrimaryUrl" data-c="hero.buttonPrimary" href="https://wa.me/212698457498" target="_blank">طلب الآن</a>
+          <a class="btn btn-outline" data-c-href="hero.buttonSecondaryUrl" data-c="hero.buttonSecondary" href="https://instagram.com/daily.dose__coffe" target="_blank">تابعنا على الإنستغرام</a>
+        </div>
+        <div class="hero-info">
+          <div><strong data-c="hero.hoursLabel">العمل:</strong> <span data-c="hero.hours">08:00 – 23:00</span></div>
+          <div><strong data-c="hero.phoneLabel">الطلب:</strong> <a data-c-href="hero.phoneUrl" data-c="hero.phone" href="https://wa.me/212698457498" target="_blank" style="color: inherit; text-decoration: none;">0698457498</a></div>
+        </div>
+      </div>
+      <div class="hero-image-card product-hero-visual" data-reveal data-reveal-delay="1">
+        <img data-c-src="hero.image" src="assets/storefront-night.jpg" alt="Daily Dose storefront" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section" id="about">
+    <div class="container about-grid">
+      <div data-reveal>
+        <p class="section-label" data-c="about.sectionLabel">من نحن</p>
+        <h2 data-c="about.heading">نحن Daily Dose</h2>
+        <p class="sub" data-c="about.sub">بساطة الأناقة تلتقي مع طعم القهوة المميز. صفحة Daily Dose تقدم قهوة مختصة، مشروبات طازجة، وأجواء مميزة للتمتع بلحظاتك.</p>
+        <ul class="features-list" id="aboutFeatures">
+          <li>تصميم جذاب وأنيق</li>
+          <li>توصيل إلى باب الدار</li>
+          <li>منتجات طبيعية ومتميزة</li>
+        </ul>
+      </div>
+      <div class="about-cards" id="aboutCards" data-reveal data-reveal-delay="1">
+        <article class="feature-card">
+          <span class="card-icon">☕</span>
+          <h3>قهوة مختارة</h3>
+          <p>بلقنة فريدة وكافية ديال الطاقة لكل نهار.</p>
+        </article>
+        <article class="feature-card">
+          <span class="card-icon">🚀</span>
+          <h3>طلب سهل</h3>
+          <p>اتصل بنا أو راسلنا على الإنستغرام وحنا نوصلو.</p>
+        </article>
+        <article class="feature-card">
+          <span class="card-icon">✨</span>
+          <h3>ستايل عصري</h3>
+          <p>عرض أنيق وألوان راقية تخدم ذوق الشارع المغربي.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MENU ===== -->
+  <section class="section menu-section" id="menu">
+    <div class="container" dir="ltr">
+      <p class="section-label" data-c="menu.sectionLabel">MENU</p>
+      <h2 data-c="menu.heading">القائمة</h2>
+      <div class="menu-grid" id="menuGrid">
+        <article class="menu-card" data-reveal>
+          <h3>Daily Breakfast</h3>
+          <div class="menu-item"><span>Avocado Toast<br><small>(Hot Drink + Ginger Shot + Bottle of Water)</small></span><span>39 MAD</span></div>
+          <div class="menu-item"><span>Turkey &amp; Cheese Croissant<br><small>(Hot Drink + Ginger Shot + Bottle of Water)</small></span><span>35 MAD</span></div>
+        </article>
+        <article class="menu-card" data-reveal data-reveal-delay="1">
+          <h3>Daily Original Cafe</h3>
+          <div class="menu-item"><span>Espresso (Takeaway)</span><span>8 MAD</span></div>
+          <div class="menu-item"><span>Espresso</span><span>12 MAD</span></div>
+          <div class="menu-item"><span>Espresso Macchiato</span><span>13 MAD</span></div>
+          <div class="menu-item"><span>Double Espresso</span><span>17 MAD</span></div>
+          <div class="menu-item"><span>Americano</span><span>14 MAD</span></div>
+          <div class="menu-item"><span>Latte</span><span>14 MAD</span></div>
+          <div class="menu-item"><span>Latte Macchiato</span><span>16 MAD</span></div>
+          <div class="menu-item"><span>Cappuccino</span><span>16 MAD</span></div>
+          <div class="menu-item"><span>Mocha</span><span>17 MAD</span></div>
+          <div class="menu-item"><span>Hot Chocolate</span><span>14 MAD</span></div>
+          <div class="menu-item"><span>Dark Chocolate Fondue</span><span>27 MAD</span></div>
+          <div class="menu-item"><span>White Chocolate Fondue</span><span>28 MAD</span></div>
+          <div class="menu-item"><span>Matcha Latte</span><span>24 MAD</span></div>
+          <div class="menu-item"><span>Chai Latte</span><span>24 MAD</span></div>
+          <div class="menu-item"><span>Lipton Tea</span><span>12 MAD</span></div>
+          <p class="supplements-note">Flavor Syrup: +3 MAD &nbsp;·&nbsp; Almond Milk: +5 MAD &nbsp;·&nbsp; Whipped Cream: +5 MAD</p>
+        </article>
+        <article class="menu-card" data-reveal data-reveal-delay="1">
+          <h3>Daily Iced Coffee</h3>
+          <div class="menu-item"><span>Iced Latte</span><span>20 MAD</span></div>
+          <div class="menu-item"><span>Iced Americano</span><span>19 MAD</span></div>
+          <div class="menu-item"><span>Iced Matcha</span><span>27 MAD</span></div>
+          <div class="menu-item"><span>Iced Caramel Macchiato</span><span>25 MAD</span></div>
+          <div class="menu-item"><span>Iced Spanish Latte</span><span>27 MAD</span></div>
+        </article>
+        <article class="menu-card" data-reveal data-reveal-delay="2">
+          <h3>Daily Iced Tea</h3>
+          <div class="menu-item"><span>Lemon Iced Tea</span><span>19 MAD</span></div>
+          <div class="menu-item"><span>Peach Iced Tea</span><span>19 MAD</span></div>
+          <div class="menu-item"><span>Red Fruits Iced Tea</span><span>20 MAD</span></div>
+        </article>
+        <article class="menu-card" data-reveal data-reveal-delay="3">
+          <h3>Daily Bubble Tea</h3>
+          <div class="menu-item"><span>Strawberry / Peach / Blueberry</span><span>29 MAD</span></div>
+          <div class="menu-item"><span>Mango / Pineapple / Passion Fruit</span><span>29 MAD</span></div>
+        </article>
+        <article class="menu-card" data-reveal data-reveal-delay="3">
+          <h3>Daily Milkshake</h3>
+          <div class="menu-item"><span>Chocolate / Vanilla / Strawberry / Caramel</span><span>29 MAD</span></div>
+          <div class="menu-item"><span>Frappuccino</span><span>36 MAD</span></div>
+        </article>
+      </div>
+      <div class="menu-cta" data-reveal>
+        <a class="btn btn-gold" data-c-href="menu.ctaUrl" data-c="menu.ctaText" href="https://wa.me/212698457498" target="_blank">🚀 اطلب الآن عبر الواتساب</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <p class="section-label" data-c="gallery.sectionLabel">صور</p>
+      <h2 data-c="gallery.heading">الأصلية من Daily Dose</h2>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-item" data-reveal>
+          <img src="tsawer/Screenshot_2026-05-29-19-11-35-161_com.miui.videoplayer.jpg" alt="Daily Dose" />
+          <div class="overlay"><span>🔍</span></div>
+        </div>
+        <div class="gallery-item" data-reveal data-reveal-delay="1">
+          <img src="tsawer/Screenshot_2026-05-29-19-11-26-949_com.miui.videoplayer.jpg" alt="Daily Dose" />
+          <div class="overlay"><span>🔍</span></div>
+        </div>
+        <div class="gallery-item" data-reveal data-reveal-delay="2">
+          <img src="tsawer/Screenshot_2026-05-29-19-10-38-341_com.miui.videoplayer.jpg" alt="Daily Dose" />
+          <div class="overlay"><span>🔍</span></div>
+        </div>
+        <div class="gallery-item" data-reveal data-reveal-delay="3">
+          <img src="tsawer/Screenshot_2026-05-29-19-10-01-274_com.miui.videoplayer.jpg" alt="Daily Dose" />
+          <div class="overlay"><span>🔍</span></div>
+        </div>
+        <div class="gallery-item" data-reveal data-reveal-delay="1">
+          <img src="tsawer/Screenshot_2026-05-29-19-09-56-788_com.miui.videoplayer.jpg" alt="Daily Dose" />
+          <div class="overlay"><span>🔍</span></div>
+        </div>
+        <div class="gallery-item" data-reveal data-reveal-delay="2">
+          <img src="tsawer/Screenshot_2026-05-29-19-09-44-427_com.miui.videoplayer.jpg" alt="Daily Dose" />
+          <div class="overlay"><span>🔍</span></div>
+        </div>
+        <div class="gallery-item" data-reveal data-reveal-delay="3">
+          <img src="tsawer/Screenshot_2026-05-29-19-08-44-844_com.miui.videoplayer.jpg" alt="Daily Dose" />
+          <div class="overlay"><span>🔍</span></div>
+        </div>
+        <div class="gallery-item" data-reveal data-reveal-delay="4">
+          <img src="tsawer/Screenshot_2026-05-29-19-08-39-214_com.miui.videoplayer.jpg" alt="Daily Dose" />
+          <div class="overlay"><span>🔍</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">×</button>
+    <img id="lightboxImg" src="" alt="" />
+  </div>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section" id="contact">
+    <div class="container contact-grid">
+      <div data-reveal>
+        <p class="section-label" data-c="contact.sectionLabel">اتصل بنا</p>
+        <h2 data-c="contact.heading">جاهزين نخدموك</h2>
+        <p class="sub" data-c="contact.sub">للطلبات والتوصيل في القنيطرة تواصل معنا عبر الواتساب أو مباشر على الإنستغرام.</p>
+        <div class="contact-actions">
+          <a class="btn btn-gold" data-c-href="contact.buttonInstagramUrl" data-c="contact.buttonInstagram" href="https://instagram.com/daily.dose__coffe" target="_blank">الإنستغرام</a>
+          <a class="btn btn-green" data-c-href="contact.buttonWhatsappUrl" data-c="contact.buttonWhatsapp" href="https://wa.me/212698457498" target="_blank">الواتساب</a>
+        </div>
+      </div>
+      <div class="contact-info-cards" id="contactCards" data-reveal data-reveal-delay="1">
+        <div class="contact-card">
+          <span>هاتف</span>
+          <strong><a href="https://wa.me/212698457498" target="_blank" style="color: inherit; text-decoration: none;">0698457498</a></strong>
+        </div>
+        <div class="contact-card">
+          <span>الإنستغرام</span>
+          <strong>@daily.dose__coffe</strong>
+        </div>
+        <div class="contact-card">
+          <span>الموقع</span>
+          <strong>القنيطرة، المغرب</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <h3 data-c="footer.brand">Daily Dose Coffee</h3>
+      <p class="sub" data-c="footer.sub">القنيطرة · Port Lyautey</p>
+      <p class="hours" data-c="footer.hours">08:00 – 23:00</p>
+      <div class="footer-icons" id="footerIcons">
+        <a href="https://maps.app.goo.gl/icSwaN6Mc5h3XHUx9?g_st=ipc" target="_blank" aria-label="الموقع">📍</a>
+        <a href="https://wa.me/212698457498" target="_blank" aria-label="واتساب">💬</a>
+        <a href="https://instagram.com/daily.dose__coffe" target="_blank" aria-label="إنستغرام">📸</a>
+      </div>
+      <p class="copyright" data-c="footer.copyright">© Daily Dose Coffee 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    // Netlify Identity redirect
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', function(user) {
+        if (!user) {
+          window.netlifyIdentity.on('login', function() {
+            document.location.href = '/admin/';
+          });
+        }
+      });
+    }
+
+    // Content loader
+    async function loadContent() {
+      try {
+        const res = await fetch('data/content.json');
+        const data = await res.json();
+
+        // Helper: resolve dot-path in data
+        function resolve(obj, path) {
+          return path.split('.').reduce(function(acc, key) {
+            return acc ? acc[key] : undefined;
+          }, obj);
+        }
+
+        // 1. Set textContent for [data-c] elements
+        document.querySelectorAll('[data-c]').forEach(function(el) {
+          const key = el.getAttribute('data-c');
+          const val = resolve(data, key);
+          if (val !== undefined) {
+            if (el.tagName === 'META') {
+              el.setAttribute('content', val);
+            } else if (el.tagName === 'TITLE') {
+              el.textContent = val;
+            } else if (el.tagName === 'A' && !el.hasAttribute('data-c-href')) {
+              el.textContent = val;
+            } else if (el.tagName === 'INPUT') {
+              el.setAttribute('placeholder', val);
+            } else {
+              el.textContent = val;
+            }
+          }
+        });
+
+        // 2. Set href for [data-c-href] elements
+        document.querySelectorAll('[data-c-href]').forEach(function(el) {
+          const key = el.getAttribute('data-c-href');
+          const val = resolve(data, key);
+          if (val !== undefined) el.href = val;
+        });
+
+        // 3. Set src for [data-c-src] elements
+        document.querySelectorAll('[data-c-src]').forEach(function(el) {
+          const key = el.getAttribute('data-c-src');
+          const val = resolve(data, key);
+          if (val !== undefined) el.src = val;
+        });
+
+        // 4. Nav links (navbar.links)
+        function renderNavLinks(links) {
+          return links.map(function(l) {
+            return '<a href="' + l.href + '">' + l.label + '</a>';
+          }).join('');
+        }
+        document.getElementById('navLinks').innerHTML = renderNavLinks(data.navbar.links);
+        document.getElementById('navDropdown').innerHTML = renderNavLinks(data.navbar.links);
+
+        // 5. About features
+        var featuresList = document.getElementById('aboutFeatures');
+        if (featuresList && data.about.features) {
+          featuresList.innerHTML = data.about.features.map(function(f) {
+            return '<li>' + f + '</li>';
+          }).join('');
+        }
+
+        // 6. About cards
+        var aboutCards = document.getElementById('aboutCards');
+        if (aboutCards && data.about.cards) {
+          aboutCards.innerHTML = data.about.cards.map(function(c) {
+            return '<article class="feature-card">' +
+              '<span class="card-icon">' + c.icon + '</span>' +
+              '<h3>' + c.heading + '</h3>' +
+              '<p>' + c.text + '</p>' +
+            '</article>';
+          }).join('');
+        }
+
+        // 7. Menu grid
+        function renderMenuCategory(cat) {
+          var itemsHtml = cat.items.map(function(item) {
+            var noteHtml = item.note ? '<br><small>(' + item.note + ')</small>' : '';
+            return '<div class="menu-item"><span>' + item.name + noteHtml + '</span><span>' + item.price + '</span></div>';
+          }).join('');
+          var supplementsHtml = cat.supplementsNote ? '<p class="supplements-note">' + cat.supplementsNote + '</p>' : '';
+          return '<article class="menu-card" data-reveal>' +
+            '<h3>' + cat.heading + '</h3>' +
+            itemsHtml +
+            supplementsHtml +
+          '</article>';
+        }
+
+        var menuGrid = document.getElementById('menuGrid');
+        if (menuGrid && data.menu && data.menu.categories) {
+          menuGrid.innerHTML = data.menu.categories.map(renderMenuCategory).join('');
+        }
+
+        // 8. Gallery grid
+        var galleryGrid = document.getElementById('galleryGrid');
+        if (galleryGrid && data.gallery && data.gallery.images) {
+          galleryGrid.innerHTML = data.gallery.images.map(function(img) {
+            return '<div class="gallery-item" data-reveal>' +
+              '<img src="' + img.src + '" alt="' + img.alt + '" />' +
+              '<div class="overlay"><span>\uD83D\uDD0D</span></div>' +
+            '</div>';
+          }).join('');
+        }
+
+        // 9. Contact cards
+        var contactCards = document.getElementById('contactCards');
+        if (contactCards && data.contact) {
+          var c = data.contact;
+          contactCards.innerHTML =
+            '<div class="contact-card"><span>' + (resolve(data, 'contact.phoneLabel') || 'هاتف') + '</span>' +
+              '<strong><a href="' + c.buttonWhatsappUrl + '" target="_blank" style="color: inherit; text-decoration: none;">' + c.phone + '</a></strong></div>' +
+            '<div class="contact-card"><span>' + (resolve(data, 'contact.instagramLabel') || 'الإنستغرام') + '</span>' +
+              '<strong>' + c.instagram + '</strong></div>' +
+            '<div class="contact-card"><span>' + (resolve(data, 'contact.locationLabel') || 'الموقع') + '</span>' +
+              '<strong>' + c.location + '</strong></div>';
+        }
+
+        // 10. Footer icons
+        var footerIcons = document.getElementById('footerIcons');
+        if (footerIcons && data.footer && data.footer.links) {
+          footerIcons.innerHTML = data.footer.links.map(function(l) {
+            return '<a href="' + l.url + '" target="_blank" aria-label="' + l.ariaLabel + '">' + l.icon + '</a>';
+          }).join('');
+        }
+
+      } catch (e) {
+        console.error('Failed to load content:', e);
+      }
+    }
+
+    // Hamburger
+    function initHamburger() {
+      var hamburger = document.getElementById('hamburger');
+      var dropdown = document.getElementById('navDropdown');
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('open');
+        dropdown.classList.toggle('open');
+      });
+      dropdown.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') {
+          hamburger.classList.remove('open');
+          dropdown.classList.remove('open');
+        }
+      });
+    }
+
+    // Scrollspy
+    function initScrollspy() {
+      var sections = document.querySelectorAll('section[id]');
+      var navLinks = document.querySelectorAll('#navLinks a');
+      var onScroll = function() {
+        var current = '';
+        sections.forEach(function(s) {
+          if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
+        });
+        navLinks.forEach(function(a) {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+        });
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('load', onScroll);
+      onScroll();
+    }
+
+    // Reveal observer
+    function initRevealObserver() {
+      var revealObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('[data-reveal]').forEach(function(el) {
+        revealObserver.observe(el);
+      });
+    }
+
+    // Lightbox
+    function initLightbox() {
+      var lightbox = document.getElementById('lightbox');
+      var lightboxImg = document.getElementById('lightboxImg');
+      var lightboxClose = document.getElementById('lightboxClose');
+      document.addEventListener('click', function(e) {
+        var item = e.target.closest('.gallery-item');
+        if (item) {
+          var img = item.querySelector('img');
+          if (img) {
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.classList.add('open');
+          }
+        }
+      });
+      lightboxClose.addEventListener('click', function() { lightbox.classList.remove('open'); });
+      lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) lightbox.classList.remove('open');
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') lightbox.classList.remove('open');
+      });
+    }
+
+    // Init
+    document.addEventListener('DOMContentLoaded', function() {
+      initHamburger();
+      initScrollspy();
+      initRevealObserver();
+      initLightbox();
+      // Load dynamic content from JSON (overrides fallback HTML)
+      loadContent().then(function() {
+        // Re-init after dynamic content replaces fallback
+        initScrollspy();
+        initRevealObserver();
+      });
+    });
+  </script>
+</body>
+</html>

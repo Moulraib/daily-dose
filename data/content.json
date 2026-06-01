@@ -1,0 +1,169 @@
+{
+  "site": {
+    "title": "Daily Dose Coffee - كافيه القنيطرة",
+    "description": "Daily Dose Coffee - كافيه القنيطرة. قهوة مختصة، مشروبات طازجة، توصيل لباب الدار. اتصل: 0698457498",
+    "ogTitle": "Daily Dose Coffee - القنيطرة",
+    "ogDescription": "قهوة مختصة وأجواء مميزة في القنيطرة"
+  },
+  "navbar": {
+    "logo": "assets/logo-sign.jpg",
+    "brand": "Daily Dose",
+    "brandSub": "القنيطرة · Port Lyautey",
+    "links": [
+      { "label": "من نحن", "href": "#about" },
+      { "label": "القائمة", "href": "#menu" },
+      { "label": "صور", "href": "#gallery" },
+      { "label": "اتصل بنا", "href": "#contact" }
+    ]
+  },
+  "hero": {
+    "eyebrow": "Daily Dose · Port Lyautey",
+    "heading": "القهوة والأسلوب ديال Daily Dose",
+    "sub": "بساطة في التفاصيل، وفخامة في الأجواء. اكتشف عالم Daily Dose من أول نظرة.",
+    "buttonPrimary": "طلب الآن",
+    "buttonPrimaryUrl": "https://wa.me/212698457498",
+    "buttonSecondary": "تابعنا على الإنستغرام",
+    "buttonSecondaryUrl": "https://instagram.com/daily.dose__coffe",
+    "hoursLabel": "العمل:",
+    "hours": "08:00 – 23:00",
+    "phoneLabel": "الطلب:",
+    "phone": "0698457498",
+    "phoneUrl": "https://wa.me/212698457498",
+    "image": "assets/storefront-night.jpg"
+  },
+  "about": {
+    "sectionLabel": "من نحن",
+    "heading": "نحن Daily Dose",
+    "sub": "بساطة الأناقة تلتقي مع طعم القهوة المميز. صفحة Daily Dose تقدم قهوة مختصة، مشروبات طازجة، وأجواء مميزة للتمتع بلحظاتك.",
+    "features": [
+      "تصميم جذاب وأنيق",
+      "توصيل إلى باب الدار",
+      "منتجات طبيعية ومتميزة"
+    ],
+    "cards": [
+      {
+        "icon": "☕",
+        "heading": "قهوة مختارة",
+        "text": "بلقنة فريدة وكافية ديال الطاقة لكل نهار."
+      },
+      {
+        "icon": "🚀",
+        "heading": "طلب سهل",
+        "text": "اتصل بنا أو راسلنا على الإنستغرام وحنا نوصلو."
+      },
+      {
+        "icon": "✨",
+        "heading": "ستايل عصري",
+        "text": "عرض أنيق وألوان راقية تخدم ذوق الشارع المغربي."
+      }
+    ]
+  },
+  "menu": {
+    "sectionLabel": "MENU",
+    "heading": "القائمة",
+    "categories": [
+      {
+        "heading": "Daily Breakfast",
+        "items": [
+          { "name": "Avocado Toast", "note": "Hot Drink + Ginger Shot + Bottle of Water", "price": "39 MAD" },
+          { "name": "Turkey & Cheese Croissant", "note": "Hot Drink + Ginger Shot + Bottle of Water", "price": "35 MAD" }
+        ]
+      },
+      {
+        "heading": "Daily Original Cafe",
+        "supplementsNote": "Flavor Syrup: +3 MAD · Almond Milk: +5 MAD · Whipped Cream: +5 MAD",
+        "items": [
+          { "name": "Espresso (Takeaway)", "note": "", "price": "8 MAD" },
+          { "name": "Espresso", "note": "", "price": "12 MAD" },
+          { "name": "Espresso Macchiato", "note": "", "price": "13 MAD" },
+          { "name": "Double Espresso", "note": "", "price": "17 MAD" },
+          { "name": "Americano", "note": "", "price": "14 MAD" },
+          { "name": "Latte", "note": "", "price": "14 MAD" },
+          { "name": "Latte Macchiato", "note": "", "price": "16 MAD" },
+          { "name": "Cappuccino", "note": "", "price": "16 MAD" },
+          { "name": "Mocha", "note": "", "price": "17 MAD" },
+          { "name": "Hot Chocolate", "note": "", "price": "14 MAD" },
+          { "name": "Dark Chocolate Fondue", "note": "", "price": "27 MAD" },
+          { "name": "White Chocolate Fondue", "note": "", "price": "28 MAD" },
+          { "name": "Matcha Latte", "note": "", "price": "24 MAD" },
+          { "name": "Chai Latte", "note": "", "price": "24 MAD" },
+          { "name": "Lipton Tea", "note": "", "price": "12 MAD" }
+        ]
+      },
+      {
+        "heading": "Daily Iced Coffee",
+        "items": [
+          { "name": "Iced Latte", "note": "", "price": "20 MAD" },
+          { "name": "Iced Americano", "note": "", "price": "19 MAD" },
+          { "name": "Iced Matcha", "note": "", "price": "27 MAD" },
+          { "name": "Iced Caramel Macchiato", "note": "", "price": "25 MAD" },
+          { "name": "Iced Spanish Latte", "note": "", "price": "27 MAD" }
+        ]
+      },
+      {
+        "heading": "Daily Iced Tea",
+        "items": [
+          { "name": "Lemon Iced Tea", "note": "", "price": "19 MAD" },
+          { "name": "Peach Iced Tea", "note": "", "price": "19 MAD" },
+          { "name": "Red Fruits Iced Tea", "note": "", "price": "20 MAD" }
+        ]
+      },
+      {
+        "heading": "Daily Bubble Tea",
+        "items": [
+          { "name": "Strawberry / Peach / Blueberry", "note": "", "price": "29 MAD" },
+          { "name": "Mango / Pineapple / Passion Fruit", "note": "", "price": "29 MAD" }
+        ]
+      },
+      {
+        "heading": "Daily Milkshake",
+        "items": [
+          { "name": "Chocolate / Vanilla / Strawberry / Caramel", "note": "", "price": "29 MAD" },
+          { "name": "Frappuccino", "note": "", "price": "36 MAD" }
+        ]
+      }
+    ],
+    "ctaText": "🚀 اطلب الآن عبر الواتساب",
+    "ctaUrl": "https://wa.me/212698457498"
+  },
+  "gallery": {
+    "sectionLabel": "صور",
+    "heading": "الأصلية من Daily Dose",
+    "images": [
+      { "src": "tsawer/Screenshot_2026-05-29-19-11-35-161_com.miui.videoplayer.jpg", "alt": "Daily Dose" },
+      { "src": "tsawer/Screenshot_2026-05-29-19-11-26-949_com.miui.videoplayer.jpg", "alt": "Daily Dose" },
+      { "src": "tsawer/Screenshot_2026-05-29-19-10-38-341_com.miui.videoplayer.jpg", "alt": "Daily Dose" },
+      { "src": "tsawer/Screenshot_2026-05-29-19-10-01-274_com.miui.videoplayer.jpg", "alt": "Daily Dose" },
+      { "src": "tsawer/Screenshot_2026-05-29-19-09-56-788_com.miui.videoplayer.jpg", "alt": "Daily Dose" },
+      { "src": "tsawer/Screenshot_2026-05-29-19-09-44-427_com.miui.videoplayer.jpg", "alt": "Daily Dose" },
+      { "src": "tsawer/Screenshot_2026-05-29-19-08-44-844_com.miui.videoplayer.jpg", "alt": "Daily Dose" },
+      { "src": "tsawer/Screenshot_2026-05-29-19-08-39-214_com.miui.videoplayer.jpg", "alt": "Daily Dose" }
+    ]
+  },
+  "contact": {
+    "sectionLabel": "اتصل بنا",
+    "heading": "جاهزين نخدموك",
+    "sub": "للطلبات والتوصيل في القنيطرة تواصل معنا عبر الواتساب أو مباشر على الإنستغرام.",
+    "buttonInstagram": "الإنستغرام",
+    "buttonInstagramUrl": "https://instagram.com/daily.dose__coffe",
+    "buttonWhatsapp": "الواتساب",
+    "buttonWhatsappUrl": "https://wa.me/212698457498",
+    "phoneLabel": "هاتف",
+    "phone": "0698457498",
+    "instagramLabel": "الإنستغرام",
+    "instagram": "@daily.dose__coffe",
+    "locationLabel": "الموقع",
+    "location": "القنيطرة، المغرب"
+  },
+  "footer": {
+    "brand": "Daily Dose Coffee",
+    "sub": "القنيطرة · Port Lyautey",
+    "hours": "08:00 – 23:00",
+    "links": [
+      { "icon": "📍", "url": "https://maps.app.goo.gl/icSwaN6Mc5h3XHUx9?g_st=ipc", "ariaLabel": "الموقع" },
+      { "icon": "💬", "url": "https://wa.me/212698457498", "ariaLabel": "واتساب" },
+      { "icon": "📸", "url": "https://instagram.com/daily.dose__coffe", "ariaLabel": "إنستغرام" }
+    ],
+    "copyright": "© Daily Dose Coffee 2026"
+  }
+}
